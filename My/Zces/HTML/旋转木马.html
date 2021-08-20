@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        body{overflow: hidden;
+            background: #000000;
+        }
+        /* 场景景深 */
+        #perspective{
+            perspective: 800px;
+        }
+        #wrap{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 150px  auto;
+            transform-style: preserve-3d;
+            transform: rotateX(-15deg) rotateY(0deg) ;/*景深可以简写在此属性里*/
+        }
+        #wrap img{
+            position: absolute;
+            width: 200px;
+            transform: rotateX(0deg) rotateY(0deg);
+            box-shadow: 0px 0px 1px #000000;
+            /* 用box-shadow可以忽略层级问题 */
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="perspective">
+        <div id="wrap">
+            <img src="../001.jpg" >
+            <img src="../002.jpg" >
+            <img src="../003.jpg" >
+            <img src="../004.jpg" >
+            <img src="../005.jpg" >
+            <img src="../006.jpg" >
+            <img src="../img-1.jpg" >
+            <img src="../img-2.jpg" >
+            <img src="../img-3.jpg" >
+
+        </div>
+    </div>
+    
+</body>
+<script type="text/javascript">
+    window.onload=function(){
+    var oImg = document.getElementsByTagName('img');
+    var oWrap = document.getElementById('wrap');
+    var perspective = document.getElementById("perspective");    
+    var Deg = 360/(oImg.length);
+    
+    Array.prototype.forEach.call(oImg,function(el,index){
+        el.style.transform = "rotateY("+Deg*index+"deg)translateZ(350px)";
+        // el.style.zIndex = -index;
+        el.style.transition = "transform 1s "+ index*0.1 +"s";
+        
+    });
+    // 防止选中图片
+    document.onmousemove = function (ev) {  
+     window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); 
+}
+    // 禁止图片拖拽
+    document.ondragstart = function() {
+        return false;
+};
+
+    var roX = -10,roY = 0;//总旋转度数
+    function move(){
+        roY+=0.2;
+        oWrap.style.transform="rotateX("+roX+"deg)"
+        +"rotateY("+roY+"deg)";
+    }
+    var time =setInterval(move,20);
+      
+
+        var nowX ,nowY,//当前鼠标坐标
+        lastX ,lastY ,//上一次鼠标坐标
+        minusX,minusY ;//距离差
+        
+        window.onmousedown = function(ev){
+            clearInterval(time);
+        var ev = ev;//获得事件源
+        lastX = ev.clientX;lastY = ev.clientY;
+        
+        this.onmousemove = function(ev){
+        var ev = ev;//获得事件源
+        nowX = ev.clientX;nowY = ev.clientY;//获得当前坐标
+
+        minusX = nowX - lastX;minusY = nowY - lastY;//坐标差
+
+        roY += minusX/2;//累计差值
+        roX -= minusY/2;//累计差值
+
+        oWrap.style.transform = "rotateX("+roX+"deg)"
+        +"rotateY("+roY+"deg)";
+
+        lastX = nowX;lastY = nowY;//移动末期现坐标变为旧坐标
+        }
+        this.onmouseup = function(){
+        this.onmousemove = null;//取消鼠标移动的影响
+        time =setInterval(move,20);
+        // this.onmousedown = null;
+        }
+    }
+}
+</script>
+</html>

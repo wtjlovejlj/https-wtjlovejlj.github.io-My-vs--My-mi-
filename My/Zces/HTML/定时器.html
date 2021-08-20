@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 800px;
+            margin: 50px auto;
+            padding: 10px;
+            border: 10px double black;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var img = document.getElementsByTagName("img")[0];
+            var imgArray = ["../img-1.jpg" ,"../img-2.jpg","../img-3.jpg","../img-4.jpg","../img-5.jpg","../img-6.jpg"];
+            var index = 0;
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var timer;
+
+            btn01.onclick = function(){
+                // 阻止上一个定时器的开启
+                clearInterval(timer);
+                // 开启定时器  
+            timer = setInterval(function(){
+                index ++;
+
+                index  %=  imgArray.length;
+                img.src = imgArray[index];
+                
+            }, 1000);
+            };
+
+            btn02.onclick = function(){
+                // 点击按钮以后，停止计时器
+                clearInterval(timer);
+            };
+
+            
+        };
+    </script>
+</head>
+<body>
+    <div id="box1">
+        <img src="../img-1.jpg" alt="">
+        <button id="btn01">开始</button>
+        <button id="btn02">暂停</button>
+    </div>
+</body>
+</html>

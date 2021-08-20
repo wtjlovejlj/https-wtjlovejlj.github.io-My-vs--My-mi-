@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <script>
+        window.onload = function(){
+            // 获取四个多选框
+            var items = document.getElementsByName("items");
+            // 获取全选/全不选
+            var checkedAllBox = document.getElementById("checkedAllBox");
+            // 获取全选按钮
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
+            checkedAllBtn.onclick = function(){
+                for(var i=0;i<items.length;i++){
+                    items[i].checked = true;
+                }
+
+                // 将全选全不选设置为选中状态
+                checkedAllBox.checked = true;
+            };
+            // 获取全不选按钮
+            var checkedNotBtn = document.getElementById("checkedNotBtn");
+        checkedNotBtn.onclick = function(){
+                
+                for(var i=0;i<items.length;i++){
+                    items[i].checked = false;
+                }
+                // 将全不选全不选设置为选中状态
+                checkedAllBox.checked = false;
+            };
+            // 获取反选按钮
+            var checkedRevBtn = document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick = function(){
+                
+                for(var i=0;i<items.length;i++){
+                    // if(items[i].checked){
+                    //     items[i].checked=false;
+                    // }else{
+                    //     items[i].checked=true;
+                    // }
+                    items[i].checked = !items[i].checked;
+                }
+                // 再反选时也需要判断四个多选框是否全选中               
+                    checkedAllBox.checked = true;
+                    for(var j=0;j<items.length;j++){
+                        if(!items[j].checked){
+                            checkedAllBox.checked = false;
+                            break;
+                        }
+                    }
+                }
+            // 获取提交按钮
+            var sendBtn = document.getElementById("sendBtn");
+            sendBtn.onclick = function(){
+                
+                for(var i=0;i<items.length;i++){
+                    if(items[i].checked){
+                        alert(items[i].value);
+                    }
+                }
+            };
+            // 设置全选全不选按钮
+            checkedAllBox.onclick = function(){
+                
+                for(var i=0;i<items.length;i++){
+                    items[i].checked = this.checked;
+                }
+            };
+            // 设置当4个多选框没选中取消全选，都选了选中全选
+            for(var i=0;i<items.length;i++){
+                items[i].onclick = function(){
+
+                    // 将checkedAllBox设置为选中状态
+                    checkedAllBox.checked = true;
+                    for(var j=0;j<items.length;j++){
+                        // 判断四个多选框是否全选
+                        // 只要有一个没选中则就是不全选
+                        if(!items[j].checked){
+                            // 一旦进入判断，则证明不是全选状态
+                            // 将checkedAllBox设置为没选中状态
+                            checkedAllBox.checked = false;
+                            // 一旦进入判断，这已经得出结果，不用再继续执行循环
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
+       
+    </script>
+<body>
+    
+    <form action="" method="POST">
+        你最喜欢的英雄是？<input type="checkbox" id="checkedAllBox"> 全选/全不选
+        <br>
+        <input type="checkbox" name="items" value="腕豪"> 腕豪
+        <input type="checkbox" name="items" value="狗熊"> 狗熊
+        <input type="checkbox" name="items" value="瑞文"> 瑞文
+        <input type="checkbox" name="items" value="猴子"> 猴子
+        <br>
+        <input type="button" id="checkedAllBtn" value="全 选">
+        <input type="button" id="checkedNotBtn" value="全不选">
+        <input type="button" id="checkedRevBtn" value="反 选">
+        <input type="button" id="sendBtn" value="提 交">
+
+    </form>
+</body>
+</html>

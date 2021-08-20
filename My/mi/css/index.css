@@ -1,0 +1,1432 @@
+/* 主页index.html的样式表 */
+
+/* 顶部导航条的容器 */
+.top-bar-wrapper{
+    /* 设置宽度全屏 */
+    width: 100%;
+    /* 设置高度和行高 */
+    height: 40px;
+    line-height: 40px;
+    /* 设置背景颜色 */
+    background-color: #333;
+}
+
+/* 设置超链接的颜色 */
+.top-bar a{
+    font-size: 12px;
+    color: #b0b0b0;
+    display: block;
+}
+
+/* 超链接移入的效果 */
+.top-bar a:hover{
+    color: #fff;
+}
+
+/* 设置中间分隔线 */
+.top-bar .line{
+    font-size: 12px;
+    color: #424242;
+    margin: 0 8px;
+}
+
+/* 设置左侧导航栏 */
+.service,.top-bar li{
+    float: left;
+}
+
+.app{
+    position: relative;
+}
+
+/* 设置app下的小三角 */
+/* .app-wrapper:hover > .app::after{ */
+.app::after{
+    display: none;
+    content: '';
+    /* 设置绝对定位 */
+    position: absolute;
+    width: 0;
+    height: 0;
+    /* 设置四个方向的边框 */
+    border: 8px solid transparent;
+    /* 去除上边框 */
+    /* border-top: none; */
+    /* 单独设置下边框的颜色 */
+    border-bottom-color: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.app:hover .qr-code,
+.app:hover::after{
+    display: block;
+    height: 148px;
+    z-index: 999;
+}
+
+/* 设置app下载图片的出现 */
+/* .app-wrapper:hover>.app .qr-code{
+    display: block;
+} */
+
+/* 设置下载app的下拉 */
+.app .qr-code{
+    /* display: none; */
+    position: absolute;
+    left: -40px;
+    width: 124px;
+    /* height: 148px; */
+    height: 0;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+
+    /* transition:用于为样式设置过渡效果 */
+    transition: height 0.3s;
+}
+
+/* 设置图片大小 */
+.app .qr-code img{
+    width: 90px;
+    margin: 17px;
+    margin-bottom: 10px;
+}
+
+.app .qr-code span{
+    font-size: 14px;
+    color: #000;
+}
+
+/* 设置右侧导航栏 */
+.shop-cart,.user-info{
+    float: right;
+}
+/* 设置购物车部分的左外边距 */
+.shop-cart{
+    position: relative;
+    margin-left: 26px;
+}
+/* 设置购物车的样式 */
+.shop-cart a{
+    width: 120px;
+    background-color: #424242;
+    text-align: center;
+}
+/* 设置移入购物车的效果 */
+.shop-cart:hover a{
+    background-color: #fff;
+    color: #ff6700;
+}
+/* 设置购物车图标的右外边距 */
+.shop-cart i{
+    margin-right: 2px;
+}
+
+
+/* 设置购物车下拉层 */
+.shop-car{
+    position: absolute;
+    right: 0px;
+    width: 316px;
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+    transition: height 0.3s;
+    line-height: 100px;
+    color: #424242;
+}
+
+.shop-cart:hover .shop-car,
+.shop-car:hover::after{
+    display: block;
+    height: 100px;
+    z-index: 999;
+}
+/* 设置外部容器样式 */
+.header-wrapper{
+    position: relative;
+    height: 100px;
+}
+
+/* 设置内部容器样式 */
+.mid{
+    height: 100px;
+}
+
+/* 设置中间的header */
+.header{
+    float: left;
+    height: 100px;
+    width: 56px;
+}
+/* 设置图片的位置和大小 */
+.header .logo{
+    float: left;
+    height: 56px;
+    width: 56px;
+    margin-top: 22.5px;
+}
+/* 设置鼠标移入的效果 */
+.header .logo:hover{
+    margin-left: 1px;
+}
+/* 设置超链接的容器大小及位置 */
+.header .logo img{
+    float: left;
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    background-position: center;
+}
+
+
+/* 设置中间的导航条容器 */
+.nav-wrapper{
+    float: left;
+    /* width: 1130px; */
+    height: 100px;
+}
+
+/* 设置导航条 */
+.nav{
+    float: left;
+    width: 792px;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 58px;
+}
+/* 设置导航条中的li */
+.nav>li{
+    float: left;
+}
+
+/* 给全部商品这个li设置相对定位 */
+.all-goods-wrapper{
+    position: relative;
+}
+
+/* 设置左侧导航条的样式 */
+.left-menu{
+    width: 234px;
+    height: 420px;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, .6);
+    position: absolute;
+    z-index: 999;
+    left: -115px;
+}
+
+/* 设置左侧导航条中的a */
+ul.left-menu li a{
+    display: block;
+    height: 42px;
+    line-height: 42px;
+    color: white;
+    margin-right: 0;
+    padding: 0 30px;
+    font-size: 14px;
+}
+
+/* 设置移入后的效果 */
+ul.left-menu li a:hover{
+    color: white;
+    background-color: #ff6700;
+}
+
+/* 设置小三角的样式 */
+.left-menu a i{
+    float: right;
+    line-height: 42px;
+}
+
+/* 设置字体 */
+.nav li a{
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
+}
+
+/* 设置移入字体超链接时的效果 */
+.nav li a:hover{
+    color: #ff6700;
+}
+
+/* 隐藏全部商品 */
+.all-goods{
+    visibility: hidden;
+}
+
+/* 设置下拉层 */
+.nav .goods-info{
+    height: 0;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 140px;
+    left: 0;
+    transition: height 0.5s;
+    z-index: 9999;
+    /* display: none; */
+    overflow: hidden;
+}
+
+/* 设置鼠标移入的效果 */
+.nav .show-goods:hover .goods-info{
+    height: 230px;
+    border-top: 1px solid rgb(224, 224,  224);
+    box-shadow: 0 5px 3px rgba(0, 0, 0, .2);
+}
+.nav .good1:hover .goods-info .children-list li{
+    display: block;
+}
+.nav .good2:hover .goods-info .children-list li{
+    display: block;
+}
+.nav .good3:hover .goods-info .children-list li{
+    display: block;
+}
+.nav .good4:hover .goods-info .children-list li{
+    display: block;
+}
+.nav .good5:hover .goods-info .children-list li{
+    display: block;
+}
+.nav .good6:hover .goods-info .children-list li{
+    display: block;
+}
+.nav .good7:hover .goods-info .children-list li{
+    display: block;
+}
+
+.show-goods .goods-info .children-list {
+    width: 1226px;
+    height: 230px;
+    margin: auto;
+    padding: 0;
+    list-style-type: none;
+    font-size: 12px;
+}
+
+.show-goods .goods-info .children-list li {
+    position: relative;
+    float: left;
+    width: 180px;
+    height: 166px;
+    padding: 35px 12px 0;
+    text-align: center;
+    z-index: 999;
+    display: none;
+}
+.show-goods .goods-info .children-list li:not(.first)::before{
+    position: absolute;
+    left: 0;
+    top: 35px;
+    z-index: 1;
+    width: 1px;
+    height: 100px;
+    content: "";
+    background-color: #e0e0e0;
+}
+
+.show-goods .goods-info .children-list .figure-thumb {
+    width: 160px;
+    height: 110px;
+    margin: 0 auto 16px;
+    text-align: center;
+}
+.show-goods .goods-info .children-list .figure-thumb img{
+    width: 160px;
+    height: 110px;
+}
+
+.show-goods .goods-info .children-list .title {
+    width: 180px;
+    height: 20px;
+    margin: 0;
+    line-height: 20px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.show-goods .goods-info .children-list .price {
+    width: 180px;
+    height: 10px;
+    margin: 0;
+    line-height: 20px;
+    color: #ff6700;
+}
+
+/* 设置搜索框的容器 */
+.search-wrapper{
+    width: 296px;
+    height: 50px;
+    float: right;
+    margin-top: 25px;
+}
+
+/* 设置搜索框的样式 */
+.search-wrapper .search-inp{
+    box-sizing: border-box;
+    float: left;
+    width: 244px;
+    height: 50px;
+    border: none;
+    padding: 0 10px;
+    font-size: 16px;
+    border: 1px solid rgb(224, 224, 224);
+    outline: none;
+}
+
+/* 设置input获取焦点后的样式 */
+.search-wrapper .search-inp:focus,
+.search-wrapper .search-inp:focus + button{
+    border-color: #ff6700;
+}
+
+/* 设置搜索按钮的样式 */
+.search-wrapper .search-btn{
+    float: left;
+    height: 50px;
+    width: 52px;
+    padding: 0;
+    border: none;
+    background-color: #fff;
+    color: #616161;
+    font-size: 16px;
+    border: 1px solid rgb(224, 224, 224);
+    border-left: none;
+
+}
+
+/* 设置鼠标移入搜索按钮的状态 */
+.search-wrapper .search-btn:hover{
+    background-color: #ff6700;
+    color: white;
+    border: none;
+}
+
+/* 设置banner */
+.banner{
+    position: relative;
+    height: 460px;
+    overflow: hidden;
+}
+
+.banner .img-list{
+    position: absolute;
+    width: 6130px;
+    height: 460px;
+    margin: 0;
+    z-index: 1;
+    transition: left 0.5s;
+    animation: go-on 15s 8s alternate ease-in-out infinite;
+    -webkit-animation: go-on 15s 8s alternate ease-in-out infinite;
+}
+.banner .img-list .slides{
+    float: left;
+    width: 1226px;
+    height: 460px;
+}
+.banner:hover .img-list{
+    animation-play-state: paused;
+}
+/* 设置图片的样式 */
+.banner img{
+    height: 460px;
+    width: 1226px;
+    vertical-align: top;
+    /* display: none; */
+}
+
+.banner input{
+    position: absolute;
+    z-index: 100;
+}
+
+#control-1:checked~.label1{
+    background-color: #000;
+}
+#control-2:checked~.label2{
+    background-color: #000;
+}
+#control-3:checked~.label3{
+    background-color: #000;
+}
+#control-4:checked~.label4{
+    background-color: #000;
+}
+#control-5:checked~.label5{
+    background-color: #000;
+}
+#control-1:checked~.img-list{
+    left: 0;
+}
+#control-2:checked~.img-list{
+    left: -1226px;
+}
+#control-3:checked~.img-list{
+    left: -2452px;
+}
+#control-4:checked~.img-list{
+    left: -3678px;
+}
+#control-5:checked~.img-list{
+    left: -4904px;
+}
+/* 设置动画 */
+ /* 对动画的关键帧进行设置*/
+ @keyframes go-on {
+    0% {
+        left: 0px;
+    }
+    25% {
+        left: -1226px;
+    }
+    50% {
+        left: -2452px;
+    }
+    75% {
+        left: -3678px;
+    }
+    100% {
+        left: -4904px;
+    }
+}
+/*对动画的关键帧进行兼容处理*/
+@-webkit-keyframes go-on {
+    0% {
+        left: 0px;
+    }
+    25% {
+        left: -1226px;
+    }
+    50% {
+        left: -2452px;
+    }
+    75% {
+        left: -3678px;
+    }
+    100% {
+        left: -4904px;
+    }
+}
+
+/* 设置两个箭头 */
+.prev-next button{
+    width: 41px;
+    height: 69px;
+    border: none;
+    background-image: url(../img/download1.png);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: 999;
+}
+/* 设置左侧箭头的位置 */
+.prev-next .prev{
+    left: 233px;
+    background-position: -84px 0;
+}
+/* 设置移入后雪碧图的效果 */
+.prev-next .prev:hover{
+    background-position: 0 0;
+}
+/* 设置右侧箭头的位置 */
+.prev-next .next{
+    right: 0;
+    background-position: -125px 0;
+}
+/* 设置移入后雪碧图的效果 */
+.prev-next .next:hover{
+    background-position: -42px 0;
+}
+/* 设置左侧置顶框的样式 */
+.back-top{
+    width: 26px;
+    height: 206px;
+    background-color: orange;
+    /* 开启固定定位 */
+    position: fixed;
+    bottom: 70px;
+    right: 50%;
+    margin-right: -639px;
+}
+
+/* 设置下部广告区域 */
+.ad{
+    height: 170px;
+    margin-top: 14px;
+    margin-bottom: 20px;
+}
+
+.ad .shortcut,
+.ad .ad-img,
+.ad li{
+    float: left;
+}
+
+/* 设置左侧快捷方式 */
+.ad .shortcut{
+    width: 228px;
+    height: 168px;
+    background-color: #5f5750;
+    margin-right: 14px;
+    text-align: center;
+    padding-top: 2px;
+    padding-left: 6px;
+}
+
+.ad .shortcut li{
+    width: 76px;
+    height: 82px;
+    position: relative;
+}
+
+/* 设置上边框 */
+.ad .shortcut li::before{
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 1px;
+    background-color: #665e57;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: 0 auto;
+}
+
+/* 设置左边框 */
+.ad .shortcut li::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 70px;
+    background-color: #665e57;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto 0 ;
+}
+
+
+/* 设置快捷方式中的超链接 */
+.ad .shortcut a{
+    display: block;
+    color: #cfccca;
+    height: 84px;
+    width: 76px;
+}
+
+.ad .shortcut a:hover{
+    color: #fff;
+}
+.ad .shortcut a img{
+    display: block;
+    height: 24px;
+    width: 24px;
+    margin: 20px auto 4px;
+}
+
+/* 设置左侧的图片 */
+.ad .ad-img li{
+    width: 316px;
+    margin-right: 15px;
+}
+.ad .ad-img li:last-child{
+    margin: 0;
+}
+
+.ad .ad-img img{
+    width: 100%;
+    vertical-align: top;
+}
+
+.box-wrapper{
+    background-color: #f5f5f5;
+}
+/* 设置小米秒杀板块标题样式 */
+.box-wrapper .box-hd{
+    height: 58px;
+}
+
+/* 设置标题字体 */
+.box-hd .title{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+/* 设置计时板块 */
+.time-box{
+    position: relative;
+}
+/* 设置计时第一板块 */
+.time-box .box1{
+    border-top-color: #e53935;
+    float: left;
+    height: 300px;
+    width: 234px;
+    padding-top: 39px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    background: #f1eded;
+    text-align: center;
+}
+/* 设置几点场次的样式 */
+.box1 .round{
+    font-size: 21px;
+    color: #ef3a3b;
+    padding-top: 15px;
+}
+/* 设置闪电图片的样式 */
+.box1 img{
+    margin: 25px auto;
+}
+/* 设置距离结束的字体样式 */
+.box1 .desc{
+    color: rgba(0,0,0,.54);
+    font-size: 15px;
+}
+/* 设置时间倒流板块样式 */
+.box1 .countdown{
+    width: 168px;
+    margin: 28px auto 0;
+}
+.countdown span{
+    width: 46px;
+    height: 46px;
+    background: #605751;
+    color: #fff;
+    font-size: 24px;
+    line-height: 46px;
+    float: left;
+}
+.countdown i{
+    width: 15px;
+    float: left;
+    height: 46px;
+    line-height: 46px;
+    color: #605751;
+    font-size: 28px;
+    font-style: normal;
+}
+
+/* 设置box2的样式 */
+.box2{
+    position: relative;
+    left: 10px;
+}
+.box2 .swipe-wrapper{
+    height: 340px;
+}
+/* 设置几个轮播板块的样式 */
+.box2 .swipe-slide{
+    border-top-color: #ffac13;
+    float: left;
+    width: 234px;
+    margin-right: 14px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    text-align: center;
+    background: #fff;
+    list-style: none;
+    left: 15px;
+}
+.swipe-slide a{
+    display: block;
+    height: 300px;
+    padding-top: 39px;
+    text-decoration: none;
+}
+.swipe-slide a img{
+    width: 160px;
+    height: 160px;
+}
+.swipe-wrapper .swipe-slide .title{
+    margin: 0 20px 3px;
+    font-size: 14px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    color: #212121;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.swipe-wrapper .swipe-slide .desc{
+    height: 18px;
+    margin: 0 20px 12px;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    color: #b0b0b0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.swipe-wrapper .swipe-slide .price{
+    margin: 0;
+    color: #ff6709;
+}
+.price del{
+    color: #b0b0b0;
+}
+
+/* 设置左右箭头是以小米秒杀内部容器为参考 */
+.box{
+    position: relative;
+}
+/* 设置箭头容器 */
+.box .swipe-controls{
+    position: absolute;
+    right: 0;
+    top: 24px;
+    width: 70px;
+    height: 24px;
+}
+/* 箭头左 */
+.swipe-controls .left{
+    float: left;
+    width: 24px;
+    height: 20px;
+    padding: 3px 5px;
+    margin-left: -1px;
+    border: 1px solid #e0e0e0;
+    line-height: 20px;
+    color: #b0b0b0;
+    text-align: center;
+}
+.swipe-controls .left:hover{
+    color: #ff6709;
+}
+/* 箭头右 */
+.swipe-controls .right{
+    float: left;
+    width: 24px;
+    height: 20px;
+    padding: 3px 5px;
+    margin-left: -1px;
+    border: 1px solid #e0e0e0;
+    line-height: 20px;
+    color: #b0b0b0;
+    text-align: center;
+}
+.swipe-controls .right:hover{
+    color: #ff6709;
+}
+.swipe-controls i{
+    font-size: 20px;
+}
+
+/* 设置手机广告的外部容器 */
+.phone{
+    width: 1226px;
+    height: 120px;
+    margin:22px auto ;
+}
+.phone img{
+    width: 1226px;
+    height: 120px;
+}
+
+/* 设置手机专栏的样式 */
+.home-phone{
+    width: 1226px;
+    height: 686px;
+    margin: auto;
+}
+.home-phone .box-hd{
+    position: relative;
+    height: 58px;
+    width: 1226px;
+
+}
+.home-phone .box-hd .title{
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+.home-phone .box-hd .more{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.home-phone .more .more-link{
+    font-size: 18px;
+    line-height: 58px;
+    color: #424242;
+    transition: all .4s;
+}
+.home-phone .more .more-link i{
+    width: 12px;
+    height: 12px;
+    padding: 6px;
+    margin-right: 2px;
+}
+.home-phone .more .more-link:hover{
+    color: #ff6700;
+}
+
+/* 设置手机板块 */
+.box-photo .row{
+    margin: 0 0 -14px -14px;
+}
+
+/* 设置板块1 */
+.box-photo .row .row1{
+    width: 234px;
+    float: left;
+    transition: all 0.5s;
+}
+.box-photo .row .row1:hover{
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translate3d(0,-2px,0);
+}
+.row1 a img{
+    width: 234px;
+    height: 614px;
+}
+/* 设置板块2 */
+.box-photo .row .row2{
+    margin-left: 14px;
+    height: 628px;
+    width: 978px;
+    float: left;
+}
+.row2 .brick-list{
+    width: 992px;
+    height: 614px;
+}
+.row2 .brick-item{
+    position: relative;
+    float: left;
+    width: 234px;
+    height: 260px;
+    padding: 20px 0;
+    margin: 0 0 14px 14px;
+    background: #fff;
+    transition: all 0.5s;
+}
+.row2 .brick-item:hover{
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translate3d(0,-2px,0);
+}
+.brick-item .figure{
+    width: 160px;
+    height: 160px;
+    margin: 0 37px 18px;
+}
+.brick-item a img{
+    width: 160px;
+    height: 160px;
+    margin: auto;
+}
+.brick-item .title{
+    margin: 0 10px 2px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    text-align: center;
+}
+.brick-item .desc{
+    margin: 0 10px 10px;
+    height: 18px;
+    font-size: 12px;
+    color: #b0b0b0;
+    text-align: center;
+}
+.brick-item .price{
+    font-size: 14px;
+    margin: 0 10px 14px;
+    text-align: center;
+    color: #ff6700;
+}
+
+/* 设置家电广告的外部容器 */
+.TV{
+    width: 1226px;
+    height: 120px;
+    margin:22px auto ;
+}
+.TV a img{
+    width: 1226px;
+    height: 120px;
+}
+/* 设置家电专栏的样式 */
+.home-TV{
+    width: 1226px;
+    height: 686px;
+    margin: auto;
+}
+.home-TV .box-hd{
+    position: relative;
+    height: 58px;
+    width: 1226px;
+}
+.home-TV .box-hd .title{
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+.home-TV .box-hd .more{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.home-TV .more .tab-list{
+    margin: 0;
+    padding: 16px 0 0;
+    list-style-type: none;
+    font-size: 16px;
+}
+.home-TV .more .tab-list li{
+    float: left;
+    margin: 0 0 0 30px;
+}
+.home-TV .box-hd .more .tab-list .tab-active1:hover{
+    color: #ff6700;
+    border-bottom: 2px solid #ff6700;
+}
+.home-TV .box-hd .more .tab-list .tab-active2:hover{
+    color: #ff6700;
+    border-bottom: 2px solid #ff6700;
+}
+/* 设置家电板块 */
+.box-TV .row{
+    margin: 0 0 -14px -14px;
+}
+
+/* 设置板块1 */
+.box-TV .row .row1{
+    width: 234px;
+    float: left;
+    transition: all 0.5s;
+}
+.box-TV .row .row1 ul li:hover{
+    box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
+    transform: translate3d(0,-2px,0);
+}
+.box-TV .row .row1 ul li{
+    height: 300px;
+    padding: 0;
+    margin: 0 0 14px 14px;
+    transition: all 0.5s;
+}
+.box-TV .row .row1 ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.box-TV .row .row1 ul li a img{
+    height: 300px;
+}
+/* 设置板块2 */
+.box-TV .row .row2{
+    margin-left: 14px;
+    height: 628px;
+    width: 978px;
+    float: left;
+}
+.box-TV .row .row2 .brick-item-s{
+    height: 93px;
+    padding-top: 50px;
+    padding-bottom: 0;
+}
+.brick-item-s .figure-img{
+    position: absolute;
+    right: 20px;
+    top: 32px;
+    width: 80px;
+    height: 80px;
+    margin: 0;
+}
+.brick-item-s .figure-img img{
+    width: 80px;
+    height: 80px;
+}
+.brick-item-s .title{
+    margin: -10px 110px 5px 30px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.brick-item-s h3{
+    display: block;
+}
+.brick-item-s .price{
+    margin: 0 110px 0 30px;
+    font-size: 12px;
+    color: #ff6700;
+}
+.brick-item-s .price .num{
+    font-size: 14px;
+}
+.brick-item-s .figure-more{
+    position: absolute;
+    right: 35px;
+    top: 48px;
+    width: 48px;
+    height: 48px;
+    color: #ff6700;
+}
+.brick-item-s .figure{
+    margin: 0;
+}
+.brick-item-s i{
+    font-size: 48px;
+    line-height: 48px;
+}
+.brick-item-s .more{
+    display: block;
+    margin: 0 110px 0 30px;
+    font-size: 18px;
+    color: #333;
+}
+.brick-item-s .more small{
+    display: block;
+    font-size: 12px;
+    color: #757575;
+}
+
+/* 设置视频广告的外部容器 */
+.video{
+    width: 1226px;
+    height: 120px;
+    margin:22px auto;
+}
+.video img{
+    width: 1226px;
+    height: 120px;
+}
+
+/* 设置视频表头 */
+.home-video{
+    width: 1226px;
+    height: 357px;
+    margin: auto;
+}
+.home-video .box-hd{
+    position: relative;
+    height: 58px;
+    width: 1226px;
+
+}
+.home-video .box-hd .title{
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+.home-video .box-hd .more{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.home-video .more .more-link{
+    font-size: 18px;
+    line-height: 58px;
+    color: #424242;
+    transition: all .4s;
+}
+.home-video .more .more-link i{
+    width: 12px;
+    height: 12px;
+    padding: 6px;
+    margin-right: 2px;
+}
+.home-video .more .more-link:hover{
+    color: #ff6700;
+}
+/* 设置表头第二部分 */
+.home-video .video-list{
+    width: 1240px;
+    height: 285px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.video-list .video-item:first-child{
+    margin-left: 0;
+}
+.video-list .video-item:first-child:hover~.video-box{
+    display: block;
+}
+.video-box:hover{
+    display: block;
+}
+
+/* 设置视频 */
+.video-box{
+    width: 880px;
+    height: 555px;
+    position: fixed;
+    bottom: 0;
+    left: 350px;
+    display: none;
+    z-index: 9999;
+
+}
+.video-box video{
+    width: 880px;
+    height: 555px;
+}
+
+
+.video-list .video-item{
+    position: relative;
+    float: left;
+    width: 296px;
+    height: 285px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    text-align: center;
+    background: #fff;
+    transition: all 0.4s;
+}
+.video-list .video-item:hover{
+    transform: translate3d(0,-2px,0);
+}
+.video-list .video-item .figure-video{
+    position: relative;
+    width: 296px;
+    height: 180px;
+    margin: 0 0 28px;
+}
+.video-list .video-item .figure-video:hover .play{
+    background-color: #ff6700;
+    border-color: #ff6700;
+}
+.video-list .video-item .figure-video img{
+    width: 296px;
+    height: 180px;
+}
+.video-list .video-item .play{
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    width: 32px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    background-color: #424242;
+    background-color: rgba(0,0,0,.6);
+    color: #fff;
+    transition: all 0.4s;
+}
+.video-list .video-item .play i{
+    font-size: 2px;
+    line-height: 20px;
+}
+.home-video .video-item .title{
+    margin: 0 14px 6px;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: #333;
+}
+.home-video .video-item .desc{
+    height: 18px;
+    margin: 0 14px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+
+/* 设置底部内部容器的样式 */
+.container {
+    width: 1226px;
+    height: 330px;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* 设置第一部分 */
+.site-footer .footer-service {
+    height: 25px;
+    padding: 27px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.site-footer .list-service {
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.site-footer .list-service li:first-child {
+    border-left: 0;
+}
+.site-footer .list-service li {
+    float: left;
+    width: 19.8%;
+    height: 25px;
+    border-left: 1px solid #e0e0e0;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+}
+.site-footer .list-service a {
+    color: #616161;
+    transition: color .2s;
+}
+.site-footer .list-service a:hover {
+    color: #ff6700;
+}
+.site-footer .list-service li i{
+    margin-right: 6px;
+}
+/* 第二部分 */
+.site-footer .footer-links {
+    padding: 40px 0;
+}
+/* 左半部分 */
+.site-footer .footer-links .col-links {
+    float: left;
+    width: 160px;
+    margin: 0;
+}
+.site-footer .footer-links .col-links dt {
+    margin: -1px 0 26px;
+    font-size: 14px;
+    line-height: 1.25;
+    color: #424242;
+}
+.site-footer .footer-links .col-links dd {
+    margin: 10px 0 0;
+    font-size: 12px;
+}
+.site-footer .footer-links .col-links a {
+    color: #757575;
+}
+/* 右半部分 */
+.site-footer .footer-links .col-contact {
+    float: right;
+    width: 251px;
+    height: 110px;
+    border-left: 1px solid #e0e0e0;
+    text-align: center;
+    color: #616161;
+}
+.site-footer .footer-links .col-contact .phone {
+    width: 251px;
+    height: 22px;
+    font-size: 22px;
+    line-height: 1;
+    color: #ff6700;
+}
+.site-footer .footer-links .col-contact p {
+    margin: 0 0 5px 0;
+    font-size: 12px;
+}
+.btn-line-primary {
+    border-color: #ff6700;
+    background: #fff;
+    color: #ff6700;
+}
+.btn-small {
+    width: 118px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 28px;
+}
+.btn {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ff6700;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+.btn-line-primary:hover {
+    color: #fff;
+    background-color: #f25807;
+    border-color: #f25807;
+}
+.site-footer .footer-links .col-contact .follow {
+    font-size: 12px;
+    margin-top: 10px;
+    position: relative;
+}
+.site-footer .footer-links .col-contact .follow i{
+    margin-right: 4px;
+    font-size: 22px;
+}
+.site-footer .footer-links .col-contact .follow i:hover{
+    color: #f25807;
+}
+.site-footer .footer-links .col-contact .follow i:hover img{
+    display: block;
+}
+.site-footer .footer-links .col-contact .follow img{
+    display: none;
+}
+.site-footer .footer-links .col-contact .follow img {
+    width: 126px;
+    height: 126px;
+    z-index: 2;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    display: none;
+}
+
+/* 设置最底部 */
+.site-info {
+    padding: 30px 0;
+    font-size: 12px;
+    background: #fafafa;
+}
+.site-info .container {
+    height: 154px;
+    position: relative;
+}
+.site-info .logo {
+    width: 56px;
+    height: 56px;
+    margin-right: 10px;
+    background: url(/mi/img/logo-mi2.png) no-repeat;
+    background-size: 56px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.site-info .info-text {
+    color: #b0b0b0;
+    padding-left: 67px;
+}
+.site-info .info-text p {
+    margin: 0;
+    line-height: 18px;
+}
+.site-info .info-text p a{
+    color: #b0b0b0;
+}
+.site-info .info-text .sites a {
+    color: #757575;
+}
+.site-info .info-text .sites .sep {
+    margin: 0;
+}
+
+.site-info .info-links {
+    height: 28px;
+    margin: 4px 0 15px;
+    padding-left: 67px;
+}
+.site-info .info-links a {
+    display: inline-block;
+}
+.site-info .info-links img {
+    width: auto;
+    height: 28px;
+    margin-left: 0;
+}
+

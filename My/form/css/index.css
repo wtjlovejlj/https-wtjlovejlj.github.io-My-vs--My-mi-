@@ -1,0 +1,278 @@
+/* 设置右边 */
+.mi__content {
+    position: fixed;
+    width: 1531px;
+    margin: 0 auto;
+}
+
+
+
+/* 设置右边上 */
+.mi-layout__header {
+    padding: 20px;
+    overflow: hidden;
+    background-color: rgb(31, 216, 223);
+}
+.mi-layout__title {
+    float: left;
+    height: 40px;
+    font-size: 26px;
+    font-weight: 500;
+    color: #333;
+    line-height: 40px;
+}
+.mi-layout__title .mi-logo{
+    display: flex;
+    width: 154px;
+    height: 40px;
+}
+.mi-layout__title .mi-logo img{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.mi-layout__title .mi-logo span{
+    width: 130px;
+    height: 43px;
+}
+.mi-nav {
+    float: right;
+}
+
+.mi-nav__item {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #201d1d;
+    line-height: 40px;
+}
+.mi-nav__divider {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 14px;
+    width: 0;
+    border-right: 1px solid #ddd;
+}
+/* 设置中间 */
+.mi-layout__container{
+    display: flex;
+    justify-content: center;
+    background-image: url(../img/downlo1.jpg);
+    background-size: 1080px 1080px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.mi-layout__card {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 40px 45px;
+    position: relative;
+    width: 450px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 80px 0;
+    box-shadow: 0 20px 50px 0 hsl(0deg 0% 64% / 10%);
+}
+.mi-qr-login-switch {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: .4;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    border-color: #ff5c00 #ff5c00 rgba(0,0,0,0) rgba(0,0,0,0);
+    border-style: solid;
+    border-width: 32px;
+    background-size: cover;
+}
+.mi-qr-login-switch__icon {
+    position: absolute;
+    font-size: 36px;
+    top: -22px;
+    right: -22px;
+}
+.mi-qr-login-switch__icon img{
+    width: 36px;
+    height: 36px;
+}
+.mi-qr-login-switch:hover {
+    opacity: 1;
+}
+
+/* 设置中部总 */
+.ant-tabs{
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 1080px;
+}
+/* 设置中部上 */
+.ant-tabs .tabs-1{
+    width: 360px;
+    height: 41px;
+    border-bottom: none;
+    margin: 0 0 10px;
+}
+.ant-tabs .tabs-1 .box{
+    display: flex;
+    width: 128px;
+    height: 41px;
+    font-size: 22px;
+    font-weight: 400;
+}
+.tabs-1 .box .box1,
+.tabs-1 .box .box2{
+    font-size: 22px;
+    font-weight: 400;
+    padding: 0 0 4px;
+    margin: 0 20px 0 0;
+    width: 44px;
+    height: 41px;
+    line-height: 41px;
+}
+.ant-tabs .tabs-1 .box a:active{
+    color: rgb(29, 27, 27);
+    font-weight: 500;
+}
+
+/* 设置中部中 */
+.tabs-2{
+    display: flex;
+}
+.mi-form__content{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 2px 0;
+    width: 360px;
+    height: 100%;
+}
+
+.mi-form__content .list input{
+    width: 354px;
+    height: 60px;
+    border: none;
+    font-size: 17px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    background: #fcf2f3;
+    outline: none;
+}
+
+/* 
+.list-1 label{
+    color: #f04645;
+    font-weight: 400;
+    font-size: 10px;
+    top: 115px;
+    position: absolute;
+    left: 65px;
+}
+.list-2 label{
+    color: #f04645;
+    font-weight: 400;
+    font-size: 10px;
+    top: 215px;
+    position: absolute;
+    left: 65px;
+} */
+.mi-form__content .idea{
+    width: 356px;
+    height: 20px;
+    font-size: 12px;
+    color: #1d1b1b;
+    margin-bottom: 10px;
+}
+.mi-form__content .idea p{
+    font-size: 15px;
+    display: none;
+}
+.mi-form__content .ok{
+    margin-top: 20px;
+}
+.dan-grading{
+    margin-bottom: 20px;
+}
+.admit{
+    display: flex;
+}
+.admit p{
+    margin: 0;
+}
+.mi-form__content button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    color: #fff;
+    background-color: #da6b1d;
+    cursor: default;
+    opacity: .4;
+    font-size: 18px;
+    height: 60px;
+    border-radius: 4px;
+    border: none;
+}
+
+.list-last{
+    width: 356px;
+    height: 35px;
+}
+.list-last .left{
+    float: left;
+    font-size: 17px;
+    margin-bottom: 10px;
+   
+}
+.list-last .left a{
+    color: #ff5c00;
+}
+.list-last .right{
+    float: right;
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #ff5c00;
+}
+
+/* 中部下 */
+.bottom{
+    margin-top: 20px;
+    width: 360px;
+    height: 96px;
+}
+.bottom .bottom-title{
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    color: #aaa;
+    line-height: 40px;
+}
+
+.bottom-logo{
+    display: flex;
+    width: 360px;
+    height: 46px;
+    margin-top: 10px;
+    justify-content: center;
+}
+.bottom-logo div{
+    display: inline-block;
+    width: 46px;
+    margin: 0 12px;
+    font-size: 46px;
+}
+
+.mi-copyright .font{
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #999;
+    font-size: 20px;
+    height: 30px;
+    line-height: 30px;
+}

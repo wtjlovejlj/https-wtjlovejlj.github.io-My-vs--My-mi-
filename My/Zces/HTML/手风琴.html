@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         ul {
+            list-style: none
+        }
+ 
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        div {
+            width: 1300px;
+            height: 400px;
+            margin: 50px auto;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+ 
+        div li {
+            width: 100px;
+            height: 400px;
+            float: left;
+        }
+        
+       
+        div ul {
+            width: 1300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    
+</body>
+
+<script>
+    // 获取元素
+    var box = document.getElementById("box");
+    var list = box.children[0];
+    var lis = list.children;
+
+    // 操作li设置背景
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].style.backgroundImage = "url(../img-" + (i+1) + ".jpg)";
+
+        // 移入的时候让当前这个运动到800，其余运动到100
+        lis[i].onmouseover = function () {
+            for (var i = 0; i < lis.length; i++) {
+                move(lis[i],"width",100,50,function(){});
+            }
+            move(this,"width",800,50,function(){});
+        };
+
+        // 移出时，所有回到100
+        lis[i].onmouseout = function () {
+            for (var i = 0; i < lis.length; i++) {
+                move(lis[i],"width",100,50,function(){});
+            }
+        };
+    }
+</script>
+<script src="../JS/tools.js"></script>
+</html>

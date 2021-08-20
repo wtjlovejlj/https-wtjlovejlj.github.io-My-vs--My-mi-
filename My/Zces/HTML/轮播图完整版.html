@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+        <style>
+            /* 轮播图 */
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #outer{
+                width: 820px;
+                height: 480px;
+                margin: 50px auto;
+                background-color: greenyellow;
+                padding: 10px 0;
+                position: relative;
+                overflow: hidden;
+            }
+            #imgList{
+                list-style: none;
+                /* width: 4920px; */
+                position: absolute;
+                left: -820px;
+                
+            }
+            #imgList li{
+                float: left;
+                margin: 0 10px;
+            }
+            #navDiv{
+                position: absolute;
+                bottom: 15px;
+                /* left: 347px; */
+            }
+            #navDiv a{
+                float: left;
+                width: 15px;
+                height: 15px;
+                background-color: red;
+                opacity: 0.5;
+                margin: 0 5px;
+            }
+            #navDiv a:hover{
+                background-color: #000;
+            }
+            #prev{
+                position: absolute;
+                bottom: 0;
+                left: 250px;
+            }
+            #next{
+                position: absolute;
+                bottom: 0;
+                right: 250px;
+            }
+        </style>
+        
+<body>
+    <div class="all">
+        <!-- 轮播图 -->
+    <div id="outer">
+        <ul id="imgList">
+
+            <li> 
+                <img src="../img-6.jpg" alt="">
+            </li>
+
+            <li> 
+                <img src="../img-1.jpg" alt="">
+            </li>
+            <li> 
+                <img src="../img-2.jpg" alt="">
+            </li>
+            <li> 
+                <img src="../img-3.jpg" alt="">
+            </li>
+            <li> 
+                <img src="../img-4.jpg" alt="">
+            </li>
+            <li> 
+                <img src="../img-5.jpg" alt="">
+            </li>
+            <li> 
+                <img src="../img-6.jpg" alt="">
+            </li>
+            <li> 
+                <img src="../img-1.jpg" alt="">
+            </li>
+        </ul>
+        <!-- 创建导航按钮 -->
+        <div id="navDiv">
+            <a href="javascript:;" style="display: none;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;" style="display: none;"></a>
+        </div>
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+    </div>
+    
+</body>
+<!-- 工具js -->
+<script src="../JS/tools.js"></script>
+<!-- 轮播图js -->
+        <script>
+            window.onload = function(){
+                
+                // 获取imgList
+                var imgList = document.getElementById("imgList");
+
+                // 获取页面中所有的img标签
+                var imgArr = document.getElementsByTagName("img");
+
+                // 设置ingList 的宽度
+                imgList.style.width = 820*imgArr.length + "px";
+
+                // 获取navDiv
+                var navDiv = document.getElementById("navDiv");
+                // 获取outer
+                var outer  = document.getElementById("outer");
+                // 设置navDiv的left值
+                navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth)/2 + "px";
+
+                // 默认显示图片的索引
+                var index=1;
+                // 获取所有的a
+                var allA = document.getElementsByTagName("a");
+
+                // 获取两个按钮
+                var prev = document.getElementById("prev");
+                var next = document.getElementById("next");
+                // 设置按钮点击绑定
+                prev.onclick = function(){
+                clearInterval(timer);
+                index--;
+                move(imgList,"left",-820*index,100,function(){
+                        setA();
+                            // 动画执行完毕，开启自动切换
+                            autoChange();
+                        })
+                
+                };
+                next.onclick = function(){
+                clearInterval(timer);
+                index++;
+                
+                move(imgList,"left",-820*index,100,function(){
+                    setA();
+                            // 动画执行完毕，开启自动切换
+                            autoChange();
+                        })
+                };
+
+
+
+                // 设置默认选中的效果
+                allA[index].style.backgroundColor = "black";
+
+                // 点击超链接切换到指定的图片
+                for(var i=0; i<allA.length;i++){
+                    // 为每一个超链接都添加一个num属性
+                    allA[i].num = i;
+
+                    // 为超链接绑定点击响应函数
+                    allA[i].onclick = function(){
+                        // 关闭自动切换的定时器
+                        clearInterval(timer);
+
+                        index = this.num;
+                        // imgList.style.left = -820*index +"px";
+                        setA();
+                        move(imgList,"left",-820*index,100,function(){
+                            // 动画执行完毕，开启自动切换
+                            autoChange();
+                        })
+                    };
+                }
+                autoChange();
+
+                // 创建一个方法用来设置选中的a
+                function setA(){
+                    if(index>= imgArr.length-1){
+                        index = 1;
+                        imgList.style.left = -820+"px";
+                    }
+                    else if(index<= 0){
+                        index = imgArr.length-2;
+                        imgList.style.left = -820*index+"px";
+                    }
+                    for(var i=0;i<allA.length;i++){
+                        allA[i].style.backgroundColor = "";
+                    }
+                    allA[index].style.backgroundColor = "black";
+                };
+                // 定义一个自动切换的定时器标识
+                var timer;
+                function autoChange(){
+                    timer = setInterval(function() {
+                        index++;
+                        move(imgList,"left",-820*index,20,function(){
+                            setA();
+                        });
+                        
+                    }, 3000);
+                };
+
+            };
+        </script>
+</html>
